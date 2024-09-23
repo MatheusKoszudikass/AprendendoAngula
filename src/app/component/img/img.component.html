@@ -1,4 +1,22 @@
-<p>{{name}}</p>
-
-<img [src]="imageURL" alt=" test">
-
+@defer (on viewport){
+<app-child (incrementCountEvent)="addItem($event)"></app-child>
+<p>Incremento: {{stringArray.length}}</p>
+}@placeholder {
+<p>Incremento: {{stringArray.length}}</p>
+}@loading (minimum 2s) {
+<p>Carregando...</p>
+}
+<p>Theme inside child: {{theme}}</p>
+<div class="imagem-container">
+    <li>
+        Imagem estática:
+        <img ngSrc="https://www.adobe.com/br/products/firefly/features/media_179d807b0123090143eea74eea2d7cf4e7aa962ae.png?width=750&format=png&optimize=medium"
+            alt="Imagem 1" width="32" height="32" />
+    </li>
+    <li>
+        Imagem dinamica:
+        <img [ngSrc]="logoUrl" [alt]="logoAlt" width="32" height="32" priority />
+    </li>
+</div>
+<div [contentEditable]="isEditable">
+</div>
